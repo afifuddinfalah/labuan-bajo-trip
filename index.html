@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Labuan Bajo Luxury Trip | Jelajahi Surga Indonesia</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0ea5e9',
+            secondary: '#0369a1',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .dark .glass {
+      background: rgba(17, 24, 39, 0.8);
+    }
+    .hero-gradient {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    }
+    /* Animasi Masuk */
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-zoom {
+      animation: zoomIn 0.3s ease-out forwards;
+    }
+    body.modal-open {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full z-40 glass border-b border-white/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center gap-2">
+          <div class="bg-primary p-2 rounded-lg">
+            <i class="fas fa-ship text-white text-xl"></i>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-primary dark:text-white">BAJO<span class="text-secondary dark:text-sky-400">TRIP</span></span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8 font-medium">
+          <a href="#home" class="hover:text-primary transition">Home</a>
+          <a href="#trip" class="hover:text-primary transition">Trip</a>
+          <a href="#fasilitas" class="hover:text-primary transition">Fasilitas</a>
+          <a href="#booking" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-secondary transition shadow-lg shadow-primary/30">Pesan Sekarang</a>
+          <button id="toggleDark" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f90f6?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover" alt="Labuan Bajo">
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    
+    <div class="relative z-10 text-center px-4 max-w-4xl">
+      <span class="inline-block px-4 py-1 mb-4 border border-sky-400 text-sky-400 rounded-full text-sm font-semibold uppercase tracking-widest animate-bounce">Exclusive Travel 2024</span>
+      <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        Jelajahi Keajaiban <br> <span class="text-sky-400">Labuan Bajo</span>
+      </h2>
+      <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+        Nikmati pengalaman tak terlupakan mengelilingi pulau-pulau eksotis dengan fasilitas kapal phinisi terbaik dan pelayanan bintang lima.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#trip" class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-xl">
+          Lihat Paket Trip
+        </a>
+        <a href="#fasilitas" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold transition-all">
+          Informasi Fasilitas
+        </a>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
+      <i class="fas fa-chevron-down text-2xl"></i>
+    </div>
+  </section>
+
+  <!-- Fasilitas Singkat -->
+  <section id="fasilitas" class="py-20 max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition">
+        <i class="fas fa-utensils text-3xl text-primary mb-4"></i>
+        <h4 class="font-bold">Makan 3x Sehari</h4>
+      </div>
+      <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition">
+        <i class="fas fa-camera text-3xl text-primary mb-4"></i>
+        <h4 class="font-bold">Dokumentasi</h4>
+      </div>
+      <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition">
+        <i class="fas fa-mask text-3xl text-primary mb-4"></i>
+        <h4 class="font-bold">Alat Snorkeling</h4>
+      </div>
+      <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition">
+        <i class="fas fa-map-marked-alt text-3xl text-primary mb-4"></i>
+        <h4 class="font-bold">Tour Guide</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trip Selection -->
+  <section id="trip" class="py-20 bg-sky-50 dark:bg-gray-800/50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4 italic">Pilihan Paket Trip</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Pilih paket yang sesuai dengan keinginanmu, mulai dari perjalanan singkat hingga pengalaman eksklusif.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Card 1 -->
+        <div class="group bg-white dark:bg-gray-800 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute top-4 right-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">Best Seller</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-2">Open Trip 3D2N</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6 italic text-sm">Explore Pulau Komodo, Padar, & Pink Beach</p>
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Mulai Dari</p>
+                <p class="text-2xl font-bold text-primary">Rp 2.500.000 <span class="text-sm font-normal text-gray-400">/pax</span></p>
+              </div>
+              <button onclick="showDetail('opentrip')" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-2xl hover:bg-primary hover:text-white transition group-hover:rotate-12">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group bg-white dark:bg-gray-800 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 scale-105 border-2 border-primary">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">Premium</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-2">Private Trip 2D1N</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6 italic text-sm">Trip eksklusif dengan kapal pilihan sendiri</p>
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Mulai Dari</p>
+                <p class="text-2xl font-bold text-primary">Rp 5.000.000 <span class="text-sm font-normal text-gray-400">/kapal</span></p>
+              </div>
+              <button onclick="showDetail('private')" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-2xl hover:bg-primary hover:text-white transition">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group bg-white dark:bg-gray-800 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-2">One Day Trip</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6 italic text-sm">Trip singkat dengan Speedboat cepat</p>
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Mulai Dari</p>
+                <p class="text-2xl font-bold text-primary">Rp 1.350.000 <span class="text-sm font-normal text-gray-400">/pax</span></p>
+              </div>
+              <button onclick="showDetail('oneday')" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-2xl hover:bg-primary hover:text-white transition">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DETAIL -->
+  <div id="immersiveModal" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300" onclick="closeModal()"></div>
+    <div class="absolute inset-0 md:inset-10 lg:inset-20 bg-white dark:bg-gray-900 md:rounded-[3rem] shadow-2xl overflow-y-auto animate-zoom">
+      
+      <!-- Back Button -->
+      <button onclick="closeModal()" class="fixed top-6 left-6 z-[70] flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 px-5 py-3 rounded-2xl font-bold text-gray-600 dark:text-white shadow-xl hover:bg-primary hover:text-white transition-all transform hover:-translate-x-1">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </button>
+
+      <div class="p-6 md:p-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <img id="modalImg" src="" class="w-full h-[300px] md:h-[500px] object-cover rounded-[2.5rem] shadow-2xl mb-6">
+            <div class="grid grid-cols-3 gap-4">
+                <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f90f6?auto=format&fit=crop&q=80&w=400" class="rounded-2xl h-24 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400" class="rounded-2xl h-24 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=400" class="rounded-2xl h-24 w-full object-cover">
+            </div>
+          </div>
+
+          <div>
+            <div id="modalBadge" class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase mb-4 tracking-widest">Detail Trip</div>
+            <h2 id="modalTitle" class="text-4xl md:text-5xl font-bold mb-4"></h2>
+            <p id="modalPrice" class="text-2xl font-bold text-primary mb-8"></p>
+            <div class="prose dark:prose-invert max-w-none mb-10 text-gray-500 dark:text-gray-400 leading-relaxed text-lg">
+                <p id="modalText"></p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-[2rem] border border-gray-100 dark:border-gray-700">
+                <h4 class="font-bold text-xl mb-4 text-secondary dark:text-primary">Fasilitas Termasuk:</h4>
+                <ul class="grid grid-cols-2 gap-4">
+                    <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Kapal Phinisi/Speed</li>
+                    <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Dokumentasi Lengkap</li>
+                    <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Makan & Minum</li>
+                    <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Snorkeling Gear</li>
+                </ul>
+                <a href="#booking" onclick="closeModal()" class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-bold mt-8 hover:bg-secondary transition-all shadow-xl shadow-primary/20">
+                    Booking Paket Ini Sekarang
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Form Section -->
+  <section id="booking" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-6">Siap Untuk Berlayar?</h2>
+        <p class="text-gray-500 mb-8 leading-relaxed">
+          Isi form di samping untuk melakukan reservasi. Tim kami akan menghubungi Anda melalui WhatsApp dalam waktu maksimal 30 menit setelah data diterima.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center"><i class="fab fa-whatsapp text-xl"></i></div>
+            <div><p class="font-bold">Konfirmasi Cepat</p><p class="text-sm text-gray-500">Fast response via WhatsApp 24/7</p></div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center"><i class="fas fa-shield-alt text-xl"></i></div>
+            <div><p class="font-bold">Pembayaran Aman</p><p class="text-sm text-gray-500">Keamanan transaksi terjamin</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-gray-700">
+        <form id="bookingForm" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-semibold mb-2 ml-1 text-gray-500 uppercase tracking-wider">Nama Lengkap</label>
+              <input type="text" id="name" placeholder="John Doe" class="w-full px-5 py-4 bg-gray-50 dark:bg-gray-700 border-none rounded-2xl focus:ring-2 focus:ring-primary outline-none transition" required>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2 ml-1 text-gray-500 uppercase tracking-wider">WhatsApp</label>
+              <input type="number" id="phone" placeholder="0812..." class="w-full px-5 py-4 bg-gray-50 dark:bg-gray-700 border-none rounded-2xl focus:ring-2 focus:ring-primary outline-none transition" required>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 ml-1 text-gray-500 uppercase tracking-wider">Email</label>
+            <input type="email" id="email" placeholder="email@anda.com" class="w-full px-5 py-4 bg-gray-50 dark:bg-gray-700 border-none rounded-2xl focus:ring-2 focus:ring-primary outline-none transition" required>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-semibold mb-2 ml-1 text-gray-500 uppercase tracking-wider">Pilih Trip</label>
+              <select id="tripSelect" class="w-full px-5 py-4 bg-gray-50 dark:bg-gray-700 border-none rounded-2xl focus:ring-2 focus:ring-primary outline-none appearance-none transition">
+                <option>Open Trip 3D2N</option>
+                <option>Private Trip 2D1N</option>
+                <option>One Day Trip</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2 ml-1 text-gray-500 uppercase tracking-wider">Tanggal Trip</label>
+              <input type="date" id="date" class="w-full px-5 py-4 bg-gray-50 dark:bg-gray-700 border-none rounded-2xl focus:ring-2 focus:ring-primary outline-none transition" required>
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-5 rounded-2xl font-bold text-lg hover:bg-secondary transition-all shadow-xl shadow-primary/20 transform hover:-translate-y-1">
+            Konfirmasi Reservasi <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL PEMBAYARAN -->
+  <div id="paymentModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closePayment()"></div>
+    <div class="relative bg-white dark:bg-gray-900 w-full max-w-lg rounded-[3rem] shadow-2xl overflow-hidden animate-zoom text-center p-8 md:p-12">
+        <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-check-double text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Pemesanan Diterima!</h3>
+        <p class="text-gray-500 text-sm mb-8">Silakan selesaikan pembayaran untuk mengamankan slot perjalanan Anda.</p>
+        
+        <!-- Tab Virtual Account (REK FIXED) -->
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-3xl mb-6">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Virtual Account (BRI)</p>
+            <div class="flex items-center justify-center gap-3">
+                <span id="displayVA" class="text-2xl md:text-3xl font-extrabold text-primary tracking-wider">637601034214539</span>
+                <button onclick="copyVA()" class="text-gray-400 hover:text-primary transition"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-2 font-bold italic uppercase">A.N. BAJOTRIP LUXURY TRAVEL</p>
+        </div>
+
+        <!-- Tab QRIS Otomatis -->
+        <div class="mb-8">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Atau Scan QRIS Resmi</p>
+            <div class="bg-white p-4 rounded-3xl inline-block shadow-md border border-gray-100">
+                <img id="qrisImg" src="" alt="QRIS Barcode" class="w-48 h-48 mx-auto">
+            </div>
+            <p class="text-[10px] text-gray-400 mt-2 italic">*QRIS terbit otomatis sesuai nomor rekening tujuan</p>
+        </div>
+
+        <button id="finalWhatsApp" class="w-full bg-green-600 text-white py-4 rounded-2xl font-bold hover:bg-green-700 transition shadow-lg flex items-center justify-center gap-2">
+            <i class="fab fa-whatsapp"></i> Konfirmasi ke WhatsApp
+        </button>
+        <button onclick="closePayment()" class="mt-4 text-sm text-gray-400 hover:text-red-500 transition">Batal / Tutup</button>
+    </div>
+  </div>
+
+  <!-- Partner Pembayaran (Hanya BCA, BNI, BRI) -->
+  <section class="py-12 bg-gray-100 dark:bg-gray-950 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-xl font-bold mb-6 italic text-gray-400">Partner Pembayaran Resmi:</h3>
+      <div class="flex flex-wrap justify-center gap-12 items-center opacity-60">
+        <span class="text-2xl font-extrabold text-blue-800">BCA</span>
+        <span class="text-2xl font-extrabold text-orange-600">BNI</span>
+        <span class="text-2xl font-extrabold text-blue-600">BRI</span>
+      </div>
+      <p class="mt-8 text-gray-500 text-sm italic">Nomor Virtual Account & QRIS akan ditampilkan secara otomatis setelah reservasi.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-900 pt-20 pb-10 border-t border-gray-100 dark:border-gray-800 text-center">
+      <div class="flex justify-center items-center gap-2 mb-8">
+        <div class="bg-primary p-2 rounded-lg"><i class="fas fa-ship text-white"></i></div>
+        <span class="text-2xl font-bold text-primary">BAJO<span class="text-secondary dark:text-white">TRIP</span></span>
+      </div>
+      <p class="text-gray-500 italic">&copy; 2026 PT Bajo Tour & Travel. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Script -->
+<script>
+  const fixedAccount = "637601034214539"; // Nomor Rekening Anda
+
+  const tripData = {
+      'opentrip': { title: "Open Trip 3D2N", price: "Rp 2.500.000 /pax", img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800", desc: "Jelajahi Labuan Bajo selama 3 hari 2 malam bersama teman-teman baru. Destinasi meliputi Pulau Kelor, Pulau Padar, Pink Beach, dan Naga Komodo." },
+      'private': { title: "Private Trip 2D1N", price: "Rp 5.000.000 /kapal", img: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=800", desc: "Eksklusivitas total bersama keluarga atau pasangan. Kapal sepenuhnya milik Anda dengan jadwal yang sangat fleksibel." },
+      'oneday': { title: "One Day Trip", price: "Rp 1.350.000 /pax", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800", desc: "Solusi bagi Anda yang memiliki waktu terbatas. Speedboat cepat mengunjungi 6 destinasi ikonik dalam satu hari penuh." }
+  };
+
+  function showDetail(key) {
+      const data = tripData[key];
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalPrice').innerText = data.price;
+      document.getElementById('modalImg').src = data.img;
+      document.getElementById('modalText').innerText = data.desc;
+      document.getElementById('immersiveModal').classList.remove('hidden');
+      document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+      document.getElementById('immersiveModal').classList.add('hidden');
+      document.body.classList.remove('modal-open');
+  }
+
+  function closePayment() {
+      document.getElementById('paymentModal').classList.add('hidden');
+      document.body.classList.remove('modal-open');
+  }
+
+  function copyVA() {
+      const vaText = document.getElementById('displayVA').innerText;
+      navigator.clipboard.writeText(vaText);
+      alert("Nomor Virtual Account BRI berhasil disalin!");
+  }
+
+  const toggleDark = document.getElementById('toggleDark');
+  toggleDark.onclick = () => document.documentElement.classList.toggle('dark');
+
+  // ✅ BOOKING + VALIDASI + STATUS SISTEM
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const trip = document.getElementById('tripSelect').value;
+    const date = document.getElementById('date').value;
+
+    // ✅ VALIDASI WAJIB
+    if (!name || !email || !phone || !date) {
+      alert("Semua data wajib diisi!");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("Format email tidak valid!");
+      return;
+    }
+
+    if (phone.length < 10) {
+      alert("Nomor WhatsApp tidak valid!");
+      return;
+    }
+
+    // ✅ STATUS SISTEM
+    alert("Booking berhasil! Status: Menunggu Pembayaran");
+
+    // Generate QR (Simulasi QRIS)
+    const qrisData = `PAYMENT-REK-BRI-${fixedAccount}-NAME-${name.toUpperCase()}`;
+    const qrisUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrisData)}`;
+
+    document.getElementById('displayVA').innerText = fixedAccount;
+    document.getElementById('qrisImg').src = qrisUrl;
+
+    document.getElementById('paymentModal').classList.remove('hidden');
+    document.body.classList.add('modal-open');
+
+    // WhatsApp Confirmation
+    document.getElementById('finalWhatsApp').onclick = function() {
+      const waNumber = "6282336146758";
+      const message = `*KONFIRMASI RESERVASI*%0A%0A` +
+                      `*Nama:* ${name}%0A` +
+                      `*Email:* ${email}%0A` +
+                      `*WhatsApp:* ${phone}%0A` +
+                      `*Paket Trip:* ${trip}%0A` +
+                      `*Tanggal:* ${date}%0A%0A` +
+                      `*Rekening Tujuan:* BRI (${fixedAccount})%0A%0A` +
+                      `_Saya telah melakukan booking dan siap melakukan pembayaran._`;
+
+      window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+    };
+  });
+</script>
+
+</body>
+</html>
